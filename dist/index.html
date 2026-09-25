@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Agent 网关与模型管理工具对比 · Magpie / CC Switch / CLIProxyAPI / AstrLink</title>
-<meta name="description" content="Magpie、CC Switch、CLIProxyAPI、AstrLink 四款 AI Agent 网关与模型管理工具的架构定位、能力矩阵与选型对比">
+<title>Agent 网关与模型管理工具对比 · Magpie / CC Switch / CLIProxyAPI / AstrLink / opencodex</title>
+<meta name="description" content="Magpie、CC Switch、CLIProxyAPI、AstrLink、opencodex 五款 AI Agent 网关与模型管理工具的架构定位、能力矩阵与选型对比">
 <script>
 (function(){try{var t=localStorage.getItem('theme');if(!t)t=(typeof matchMedia==='function'&&matchMedia('(prefers-color-scheme: light)').matches)?'light':'dark';document.documentElement.setAttribute('data-theme',t)}catch(e){document.documentElement.setAttribute('data-theme','dark')}})();
 </script>
@@ -66,7 +66,7 @@ footer a:hover{color:var(--acc)}
 
 <button id="themeBtn" title="切换主题" aria-label="切换主题">🌙</button>
 <h1>Agent 网关与模型管理工具对比</h1>
-<div class="sub">Magpie · CC Switch · CLIProxyAPI · AstrLink —— 源码核实 · 2026-09-25</div>
+<div class="sub">Magpie · CC Switch · CLIProxyAPI · AstrLink · opencodex —— 源码核实 · 2026-09-25</div>
 
 <h2>一句话定位</h2>
 <div class="grid4">
@@ -74,33 +74,34 @@ footer a:hover{color:var(--acc)}
   <div class="card"><span class="name"><a href="https://github.com/farion1231/cc-switch" target="_blank" rel="noopener">CC Switch</a></span><span class="tag">全家桶</span><div class="one">供应商/MCP/Skills/Prompts/会话一站式工作台</div><div class="meta"><b>形态</b> 改配置 + proxy 接管<br><b>体量</b> 功能最重</div></div>
   <div class="card"><span class="name"><a href="https://github.com/router-for-me/CLIProxyAPI" target="_blank" rel="noopener">CLIProxyAPI</a></span><span class="tag">账号池</span><div class="one">把订阅做成兼容 API 池，给服务器/多客户端用</div><div class="meta"><b>形态</b> 纯网关/服务器<br><b>GUI</b> 无自带，靠生态</div></div>
   <div class="card"><span class="name"><a href="https://github.com/Calcium-Ion/AstrLink" target="_blank" rel="noopener">AstrLink</a></span><span class="tag">隐私向</span><div class="one">本地网关 + 隐私脱敏 + 智能路由 + 请求审计</div><div class="meta"><b>形态</b> 网关 + 桌面 App<br><b>状态</b> 早期无 release</div></div>
+  <div class="card"><span class="name"><a href="https://github.com/lidge-jun/opencodex" target="_blank" rel="noopener">opencodex</a></span><span class="tag">Codex 首选</span><div class="one">把 Codex/CC/Claude Desktop/Grok Build 接到任意 LLM</div><div class="meta"><b>形态</b> 本地代理 + Web 仪表盘<br><b>集成</b> 15 个客户端托管接入</div></div>
 </div>
 
 <h2>基础信息</h2>
 <div class="card tbl"><table aria-label="基础信息">
-<tr><th aria-label="项目"></th><th>Magpie</th><th>CC Switch</th><th>CLIProxyAPI</th><th>AstrLink</th></tr>
-<tr><th scope="row">开源时间</th><td>2026-09-23</td><td>2025-08-04</td><td>2025-07-01</td><td>2026-09-22</td></tr>
-<tr><th scope="row">Stars</th><td>627</td><td><b>136,476</b></td><td>53,137</td><td>62</td></tr>
-<tr><th scope="row">版本</th><td>v0.1.47 · 日更</td><td>v3.20.4</td><td>v7.3.17 · 日更</td><td>仅 CI 构建</td></tr>
-<tr><th scope="row">技术栈</th><td>Go + Wails</td><td>Tauri 2 + Rust + React</td><td>Go</td><td>Go core + Tauri + Rust</td></tr>
-<tr><th scope="row">监听</th><td>127.0.0.1:3425</td><td>proxy :15721</td><td>0.0.0.0:8317</td><td>127.0.0.1:8317</td></tr>
-<tr><th scope="row">License</th><td>MIT</td><td>MIT</td><td>MIT</td><td>Apache-2.0 <span class="small">依赖 AGPL RelayKit</span></td></tr>
-<tr><th scope="row">作者</th><td>yetone</td><td>Jason Young</td><td>router-for-me</td><td>Calcium-Ion <span class="small">new-api 作者</span></td></tr>
+<tr><th aria-label="项目"></th><th>Magpie</th><th>CC Switch</th><th>CLIProxyAPI</th><th>AstrLink</th><th>opencodex</th></tr>
+<tr><th scope="row">开源时间</th><td>2026-09-23</td><td>2025-08-04</td><td>2025-07-01</td><td>2026-09-22</td><td>2026-06-18</td></tr>
+<tr><th scope="row">Stars</th><td>627</td><td><b>136,476</b></td><td>53,137</td><td>62</td><td>16,215</td></tr>
+<tr><th scope="row">版本</th><td>v0.1.47 · 日更</td><td>v3.20.4</td><td>v7.3.17 · 日更</td><td>仅 CI 构建</td><td>v2.65.0 · 高频迭代</td></tr>
+<tr><th scope="row">技术栈</th><td>Go + Wails</td><td>Tauri 2 + Rust + React</td><td>Go</td><td>Go core + Tauri + Rust</td><td>TypeScript + Bun<span class="small">桌面版 Tauri + SwiftUI Widget</span></td></tr>
+<tr><th scope="row">监听</th><td>127.0.0.1:3425</td><td>proxy :15721</td><td>0.0.0.0:8317</td><td>127.0.0.1:8317</td><td>127.0.0.1:10100</td></tr>
+<tr><th scope="row">License</th><td>MIT</td><td>MIT</td><td>MIT</td><td>Apache-2.0 <span class="small">依赖 AGPL RelayKit</span></td><td>MIT</td></tr>
+<tr><th scope="row">作者</th><td>yetone</td><td>Jason Young</td><td>router-for-me</td><td>Calcium-Ion <span class="small">new-api 作者</span></td><td>lidge-jun <span class="small">韩国高丽大学</span></td></tr>
 </table></div>
 
 <h2>能力矩阵</h2>
 <div class="card tbl"><table aria-label="能力矩阵">
-<tr><th>能力</th><th>Magpie</th><th>CC Switch</th><th>CLIProxyAPI</th><th>AstrLink</th></tr>
-<tr><th scope="row">直改 Agent 配置</th><td><span class="y" title="支持">✓</span> 13 个 Agent<span class="small">外科手术 patch</span></td><td><span class="y" title="支持">✓</span> 10 个 App<span class="small">含 Pi/Hermes</span></td><td><span class="n" title="不支持">✗</span><span class="small">手动填 URL</span></td><td><span class="n" title="不支持">✗</span><span class="small">手动填 URL</span></td></tr>
-<tr><th scope="row">本地端点 + 协议转换</th><td><span class="y" title="支持">✓</span></td><td><span class="y" title="支持">✓</span> proxy 接管</td><td><span class="y" title="支持">✓</span> +WebSocket</td><td><span class="y" title="支持">✓</span></td></tr>
-<tr><th scope="row">订阅共享给其他 Agent</th><td><span class="y" title="支持">✓</span> Claude/Codex/Copilot 等</td><td><span class="w" title="部分支持">~</span> Codex/Copilot/xAI<span class="small">Beta·ToS 风险</span></td><td><span class="y" title="支持">✓</span> 最广 8+ 厂商</td><td><span class="y" title="支持">✓</span> Codex/Claude/Grok</td></tr>
-<tr><th scope="row">多账号轮询 / failover</th><td><span class="y" title="支持">✓</span></td><td><span class="y" title="支持">✓</span> +熔断</td><td><span class="y" title="支持">✓</span> 最完整<span class="small">加权/fill-first/亲和</span></td><td><span class="y" title="支持">✓</span> 别名+重试</td></tr>
-<tr><th scope="row">MCP/Skills/Prompts/会话</th><td><span class="n" title="不支持">✗</span></td><td><span class="y" title="支持">✓</span> 独有</td><td><span class="n" title="不支持">✗</span></td><td><span class="n" title="不支持">✗</span></td></tr>
-<tr><th scope="row">用量/费用统计</th><td><span class="y" title="支持">✓</span></td><td><span class="y" title="支持">✓</span> 仪表盘</td><td><span class="n" title="不支持">✗</span><span class="small">v6.10 移除</span></td><td><span class="y" title="支持">✓</span></td></tr>
-<tr><th scope="row">隐私检测/脱敏</th><td><span class="n" title="不支持">✗</span></td><td><span class="n" title="不支持">✗</span></td><td><span class="n" title="不支持">✗</span></td><td><span class="y" title="支持">✓</span> 独有</td></tr>
-<tr><th scope="row">智能路由</th><td><span class="n" title="不支持">✗</span></td><td><span class="n" title="不支持">✗</span></td><td><span class="n" title="不支持">✗</span></td><td><span class="y" title="支持">✓</span> 本地分类模型</td></tr>
-<tr><th scope="row">访问令牌/审计隔离</th><td><span class="n" title="不支持">✗</span></td><td>—</td><td><span class="y" title="支持">✓</span></td><td><span class="y" title="支持">✓</span></td></tr>
-<tr><th scope="row">本地模型接入</th><td><span class="y" title="支持">✓</span> LM Studio/Ollama 预设</td><td><span class="w" title="部分支持">~</span> 自定义</td><td><span class="w" title="部分支持">~</span> OpenAI 兼容</td><td><span class="w" title="部分支持">~</span> OpenAI 兼容</td></tr>
+<tr><th>能力</th><th>Magpie</th><th>CC Switch</th><th>CLIProxyAPI</th><th>AstrLink</th><th>opencodex</th></tr>
+<tr><th scope="row">直改 Agent 配置</th><td><span class="y" title="支持">✓</span> 13 个 Agent<span class="small">外科手术 patch</span></td><td><span class="y" title="支持">✓</span> 10 个 App<span class="small">含 Pi/Hermes</span></td><td><span class="n" title="不支持">✗</span><span class="small">手动填 URL</span></td><td><span class="n" title="不支持">✗</span><span class="small">手动填 URL</span></td><td><span class="y" title="支持">✓</span> 15 个客户端<span class="small">Integrations 开关 + 备份/还原</span></td></tr>
+<tr><th scope="row">本地端点 + 协议转换</th><td><span class="y" title="支持">✓</span></td><td><span class="y" title="支持">✓</span> proxy 接管</td><td><span class="y" title="支持">✓</span> +WebSocket</td><td><span class="y" title="支持">✓</span></td><td><span class="y" title="支持">✓</span> Responses⇄各厂协议<span class="small">+Responses WS 上游</span></td></tr>
+<tr><th scope="row">订阅共享给其他 Agent</th><td><span class="y" title="支持">✓</span> Claude/Codex/Copilot 等</td><td><span class="w" title="部分支持">~</span> Codex/Copilot/xAI<span class="small">Beta·ToS 风险</span></td><td><span class="y" title="支持">✓</span> 最广 8+ 厂商</td><td><span class="y" title="支持">✓</span> Codex/Claude/Grok</td><td><span class="y" title="支持">✓</span> ChatGPT 池 + OAuth<span class="small">xAI/Anthropic/Kimi</span></td></tr>
+<tr><th scope="row">多账号轮询 / failover</th><td><span class="y" title="支持">✓</span></td><td><span class="y" title="支持">✓</span> +熔断</td><td><span class="y" title="支持">✓</span> 最完整<span class="small">加权/fill-first/亲和</span></td><td><span class="y" title="支持">✓</span> 别名+重试</td><td><span class="y" title="支持">✓</span> 配额路由+线程亲和<span class="small">combo failover/WRR</span></td></tr>
+<tr><th scope="row">MCP/Skills/Prompts/会话</th><td><span class="n" title="不支持">✗</span></td><td><span class="y" title="支持">✓</span> 独有</td><td><span class="n" title="不支持">✗</span></td><td><span class="n" title="不支持">✗</span></td><td><span class="n" title="不支持">✗</span><span class="small">sub-agent 路由≠会话管理</span></td></tr>
+<tr><th scope="row">用量/费用统计</th><td><span class="y" title="支持">✓</span></td><td><span class="y" title="支持">✓</span> 仪表盘</td><td><span class="n" title="不支持">✗</span><span class="small">v6.10 移除</span></td><td><span class="y" title="支持">✓</span></td><td><span class="y" title="支持">✓</span> 仪表盘+配额<span class="small">cache token 计数</span></td></tr>
+<tr><th scope="row">隐私检测/脱敏</th><td><span class="n" title="不支持">✗</span></td><td><span class="n" title="不支持">✗</span></td><td><span class="n" title="不支持">✗</span></td><td><span class="y" title="支持">✓</span> 独有</td><td><span class="n" title="不支持">✗</span></td></tr>
+<tr><th scope="row">智能路由</th><td><span class="n" title="不支持">✗</span></td><td><span class="n" title="不支持">✗</span></td><td><span class="n" title="不支持">✗</span></td><td><span class="y" title="支持">✓</span> 本地分类模型</td><td><span class="w" title="部分支持">~</span> 配额/规则路由<span class="small">非内容分类</span></td></tr>
+<tr><th scope="row">访问令牌/审计隔离</th><td><span class="n" title="不支持">✗</span></td><td>—</td><td><span class="y" title="支持">✓</span></td><td><span class="y" title="支持">✓</span></td><td><span class="y" title="支持">✓</span><span class="small">非 loopback 强制 token</span></td></tr>
+<tr><th scope="row">本地模型接入</th><td><span class="y" title="支持">✓</span> LM Studio/Ollama 预设</td><td><span class="w" title="部分支持">~</span> 自定义</td><td><span class="w" title="部分支持">~</span> OpenAI 兼容</td><td><span class="w" title="部分支持">~</span> OpenAI 兼容</td><td><span class="y" title="支持">✓</span> Ollama 原生+云<span class="small">40+ 内置提供商</span></td></tr>
 </table></div>
 
 <h2>订阅"借力"差异（决定封号风险）</h2>
@@ -109,9 +110,10 @@ footer a:hover{color:var(--acc)}
 <li><b>CLIProxyAPI</b> — <b>最激进</b>：uTLS 指纹伪装 + request cloaking 伪装成 Claude Code CLI（零宽字符混淆），多账号池轮询</li>
 <li><b>AstrLink</b> — 默认强制官方客户端身份，但仅 <b>HTTP 头级</b>（无 uTLS），中间路线</li>
 <li><b>CC Switch</b> — 官方订阅只切换不外借；OAuth 反代功能官方标注 ToS 风险（Beta）</li>
+<li><b>opencodex</b> — ChatGPT 登录走<b>官方 Responses 通道</b>（codex login 转发/OAuth），协议翻译不做身份伪装；官方明文 UAYOR + 不提供规避承诺，账号池仅定位"路由与韧性"</li>
 </ul></div>
 
-<div class="warnbox"><b>风险：</b>除"官方登录切换"外，所有订阅复用路径都处 ToS 灰色地带。激进程度：CLIProxyAPI &gt; AstrLink ≈ Magpie(Codex) &gt; Magpie(Claude) ≈ CC Switch(受控)。</div>
+<div class="warnbox"><b>风险：</b>除"官方登录切换"外，所有订阅复用路径都处 ToS 灰色地带。激进程度：CLIProxyAPI &gt; AstrLink ≈ Magpie(Codex) &gt; Magpie(Claude) ≈ opencodex ≈ CC Switch(受控)。opencodex 特殊在<b>工程纪律</b>：隐私扫描进 CI、进程内存全量封顶、配置写前必备份。</div>
 
 <h2>怎么选</h2>
 <div class="pick">
@@ -119,14 +121,16 @@ footer a:hover{color:var(--acc)}
   <div class="card"><div class="who">要供应商 + MCP + Skills + 会话一站式</div><div class="to">→ CC Switch</div><div class="one">最成熟、生态最大</div></div>
   <div class="card"><div class="who">要把订阅做成 API 池给服务器/多客户端</div><div class="to">→ CLIProxyAPI</div><div class="one">账号池王者，适合 VPS，风险自担</div></div>
   <div class="card"><div class="who">在意隐私脱敏、审计、本地智能路由</div><div class="to">→ AstrLink</div><div class="one">方向独特，但太早期，建议观望</div></div>
+  <div class="card"><div class="who">主力是 Codex/CC，想接任意 LLM + ChatGPT 账号池</div><div class="to">→ opencodex</div><div class="one">Responses 协议翻译最全，Bun 单进程 + 仪表盘，迭代极快</div></div>
 </div>
 <div class="card" style="margin-top:12px"><ul>
-<li>快速二分：需要<b>改 Agent 配置文件</b> → Magpie / CC Switch；只需要一个<b>兼容 API 端点</b> → CLIProxyAPI / AstrLink</li>
-<li>CLIProxyAPI 与 AstrLink 默认同端口 <b>8317</b>，同机并存时 AstrLink 会自动让位</li>
+<li>快速二分：需要<b>改 Agent 配置文件</b> → Magpie / CC Switch / opencodex；只需要一个<b>兼容 API 端点</b> → CLIProxyAPI / AstrLink</li>
+<li>opencodex 与 Magpie 路径不同：Magpie 拉起<b>真实 CLI 进程</b>做桥接，opencodex 纯做<b>线上协议翻译</b>（不改客户端、无身份伪造）</li>
+<li>CLIProxyAPI 与 AstrLink 默认同端口 <b>8317</b>，同机并存时 AstrLink 会自动让位；opencodex 用 10100 不冲突</li>
 </ul></div>
 
 <footer>
-  Made with ❤️ Versun · <a href="https://github.com/yetone/magpie">magpie</a> · <a href="https://github.com/farion1231/cc-switch">cc-switch</a> · <a href="https://github.com/router-for-me/CLIProxyAPI">CLIProxyAPI</a> · <a href="https://github.com/Calcium-Ion/AstrLink">AstrLink</a> · v20260925
+  Made with ❤️ Versun · <a href="https://github.com/yetone/magpie">magpie</a> · <a href="https://github.com/farion1231/cc-switch">cc-switch</a> · <a href="https://github.com/router-for-me/CLIProxyAPI">CLIProxyAPI</a> · <a href="https://github.com/Calcium-Ion/AstrLink">AstrLink</a> · <a href="https://github.com/lidge-jun/opencodex">opencodex</a> · v20260925b
 </footer>
 
 <script>
