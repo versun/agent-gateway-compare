@@ -2,7 +2,7 @@
 
 四款 AI Agent 网关与模型管理工具的简洁对比页：Magpie · CC Switch · CLIProxyAPI · AstrLink。
 
-**线上**: https://agent-gateway-compare.versun.workers.dev
+**线上**: https://agent-gateway-compare.versun.me
 
 ## 特性
 - 单文件静态页，无框架，gzip ~3KB

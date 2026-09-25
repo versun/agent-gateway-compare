@@ -2,6 +2,9 @@
   "$schema": "./node_modules/wrangler/config-schema.json",
   "name": "agent-gateway-compare",
   "compatibility_date": "2026-03-01",
+  "routes": [
+    { "pattern": "agent-gateway-compare.versun.me", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./dist"
   }
