@@ -36,10 +36,10 @@ h2::before{content:"";width:3px;height:15px;background:var(--acc);border-radius:
 .one{color:var(--mut);font-size:13px;margin-top:4px}
 .meta{font-size:12.5px;color:var(--dim);margin-top:8px;line-height:1.8}
 .meta b{color:var(--mut);font-weight:600}
-table{width:100%;border-collapse:collapse;font-size:13.5px}
-th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-th{color:var(--mut);font-weight:600;font-size:12.5px;white-space:nowrap}
-th[scope="row"]{font-weight:500;text-align:left}
+table{width:100%;border-collapse:collapse;font-size:13.5px;table-layout:fixed}
+th,td{padding:9px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;word-break:break-word;overflow-wrap:break-word}
+th{color:var(--mut);font-weight:600;font-size:12.5px}
+th[scope="row"]{font-weight:500;text-align:left;white-space:normal}
 tr:last-child td,tr:last-child th{border-bottom:none}
 td .y{color:var(--ok);font-weight:600}
 td .n{color:var(--no);font-weight:600}
@@ -79,7 +79,7 @@ footer a:hover{color:var(--acc)}
 
 <h2>基础信息</h2>
 <div class="card tbl"><table aria-label="基础信息">
-<tr><th aria-label="项目"></th><th>Magpie</th><th>CC Switch</th><th>CLIProxyAPI</th><th>AstrLink</th><th>opencodex</th></tr>
+<tr><th aria-label="项目" style="width:12%"></th><th>Magpie</th><th>CC Switch</th><th>CLIProxyAPI</th><th>AstrLink</th><th>opencodex</th></tr>
 <tr><th scope="row">开源时间</th><td>2026-09-23</td><td>2025-08-04</td><td>2025-07-01</td><td>2026-09-22</td><td>2026-06-18</td></tr>
 <tr><th scope="row">技术栈</th><td>Go + Wails</td><td>Tauri 2 + Rust + React</td><td>Go</td><td>Go core + Tauri + Rust<span class="small">+ 独立 Rust 隐私/分类 worker</span></td><td>TypeScript + Bun<span class="small">桌面版 Tauri + SwiftUI Widget</span></td></tr>
 <tr><th scope="row">监听</th><td>127.0.0.1:3425</td><td>proxy :15721</td><td>0.0.0.0:8317</td><td>127.0.0.1:8317</td><td>127.0.0.1:10100</td></tr>
@@ -89,7 +89,7 @@ footer a:hover{color:var(--acc)}
 
 <h2>能力矩阵</h2>
 <div class="card tbl"><table aria-label="能力矩阵">
-<tr><th>能力</th><th>Magpie</th><th>CC Switch</th><th>CLIProxyAPI</th><th>AstrLink</th><th>opencodex</th></tr>
+<tr><th style="width:12%">能力</th><th>Magpie</th><th>CC Switch</th><th>CLIProxyAPI</th><th>AstrLink</th><th>opencodex</th></tr>
 <tr><th scope="row">直改 Agent 配置</th><td><span class="y" title="支持">✓</span> 28 个 Agent<span class="small">外科手术 patch</span></td><td><span class="y" title="支持">✓</span> 10 个 App<span class="small">含 Pi/Hermes</span></td><td><span class="n" title="不支持">✗</span><span class="small">手动填 URL</span></td><td><span class="n" title="不支持">✗</span><span class="small">手动填 URL</span></td><td><span class="y" title="支持">✓</span> 15 个客户端<span class="small">Integrations 开关 + 备份/还原</span></td></tr>
 <tr><th scope="row">本地端点 + 协议转换</th><td><span class="y" title="支持">✓</span> OpenAI/Responses/Anthropic/Gemini</td><td><span class="y" title="支持">✓</span> proxy 接管</td><td><span class="y" title="支持">✓</span> +WebSocket</td><td><span class="y" title="支持">✓</span> Responses/Chat/Anthropic/Gemini</td><td><span class="y" title="支持">✓</span> Responses⇄各厂协议<span class="small">+Responses WS 上游</span></td></tr>
 <tr><th scope="row">订阅共享给其他 Agent</th><td><span class="y" title="支持">✓</span> Claude/Codex/Copilot/Grok/Cursor/Devin/Qoder/Google<span class="small">Claude 走真实 CLI + MCP</span></td><td><span class="w" title="部分支持">~</span> Codex/Copilot/xAI<span class="small">Beta·ToS 风险</span></td><td><span class="y" title="支持">✓</span> 最广 8+ 厂商</td><td><span class="y" title="支持">✓</span> Codex/Claude/Grok<span class="small">+ Coding Plan</span></td><td><span class="y" title="支持">✓</span> ChatGPT 池 + OAuth<span class="small">xAI/Anthropic/Kimi</span></td></tr>
